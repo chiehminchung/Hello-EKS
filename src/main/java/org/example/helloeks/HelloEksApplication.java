@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloEksApplication {
     @GetMapping("/greeting")
     public String message(){
-        return "Hello EKS";
+        return "Hello jam jam EKS";
     }
     public static void main(String[] args) {
         SpringApplication.run(HelloEksApplication.class, args);
