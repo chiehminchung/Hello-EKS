@@ -14,11 +14,8 @@ pipeline{
         stage('build docker image'){
                     steps{
                         script{
-//                             sh 'docker build -t chiehmin/hello-eks .'
                             sh 'docker build -t chiehmin/hello-eks --platform linux/amd64 .'
-//                             docker push ${AWS_ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com/${IMAGE}
-//                             sh 'docker buildx build --platform linux/amd64,linux/arm64 -t chiehmin/hello-eks .'
-                            sh 'docker tag chiehmin/hello-eks:latest 654661216054.dkr.ecr.us-east-2.amazonaws.com/spring-eks:latest'
+                            sh 'docker tag chiehmin/hello-eks:hello-eks 654661216054.dkr.ecr.us-east-2.amazonaws.com/spring-eks:latest'
                         }
 
                     }
