@@ -15,7 +15,9 @@ pipeline{
                     steps{
                         script{
                             sh 'docker build -t chiehmin/hello-eks --platform linux/amd64 .'
-                            sh 'docker tag chiehmin/hello-eks:hello-eks 654661216054.dkr.ecr.us-east-2.amazonaws.com/spring-eks:latest'
+//                             sh 'docker tag chiehmin/hello-eks:latest 654661216054.dkr.ecr.us-east-2.amazonaws.com/spring-eks:latest'
+                            sh 'docker tag chiehmin/hello-eks:latest 654661216054.dkr.ecr.us-east-2.amazonaws.com/spring-eks:hello'
+
                         }
 
                     }
@@ -24,7 +26,7 @@ pipeline{
             steps{
 
                 sh 'aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 654661216054.dkr.ecr.us-east-2.amazonaws.com'
-                sh 'docker push 654661216054.dkr.ecr.us-east-2.amazonaws.com/spring-eks:latest'
+                sh 'docker push 654661216054.dkr.ecr.us-east-2.amazonaws.com/spring-eks:hello'
             }
         }
         stage('eks'){
